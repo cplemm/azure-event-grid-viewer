@@ -25,3 +25,9 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish viewer/viewer.csproj -c Release -o website
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: website
+        path: viewer/website/**
+        if-no-files-found: error
